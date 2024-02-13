@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "0d0c7810-0708-48e0-809c-d72a0877aa8e",
+		"name": "openAI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28167540"
+	},
+	"item": [
+		{
+			"name": "Get models",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openai.com/v1/models",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"models"
+					]
+				},
+				"description": "To get the list of all the models in the open AI current subscription"
+			},
+			"response": []
+		},
+		{
+			"name": "Translate English to Hindi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"messages\": [\r\n         {\r\n            \"role\": \"system\",\r\n            \"content\": \"Translate English to Hindi\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello!\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "Used for translation"
+			},
+			"response": []
+		},
+		{
+			"name": "Chat Completions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"temperature\": 1,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello!\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "Used to get the complete data based on prompt, temperature is used to get the degree of Answer whether its too complex or too simple"
+			},
+			"response": []
+		},
+		{
+			"name": "Conversational bot - Pizzeria Valentino",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\":\"Your name is Pasta and you are an assistant for a pizzeria named Pizzeria Valentino. Try to be helpful.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What kind of pizzas do you have?\"\r\n        },\r\n        {\r\n            \"role\": \"assistant\",\r\n            \"content\": \"We only have: margarita, prosciutto e fungi, and quattro formaggi.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, I would like to order a pizza.\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "creating a conversation custom bot"
+			},
+			"response": []
+		},
+		{
+			"name": "Stop Sequence",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\":\"Your name is Pasta and you are an assistant for a pizzeria named Pizzeria Valentino. Try to be helpful.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What kind of pizzas do you have?\"\r\n        },\r\n        {\r\n            \"role\": \"assistant\",\r\n            \"content\": \"We only have: margarita, prosciutto e fungi, and quattro formaggi.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Hello, I would like to order a pizza.\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "creating a conversation custom bot"
+			},
+			"response": []
+		},
+		{
+			"name": "Summary - Multi-line message",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let userMessage='OpenAI is a U.S. based artificial intelligence (AI) research organization founded in December 2015, researching artificial intelligence with the goal of developing \"safe and beneficial\" artificial general intelligence, which it defines as \"highly autonomous systems that outperform humans at most economically valuable work\".[4] As one of the leading organizations of the AI Spring,[5][6][7] it has developed several large language models, advanced image generation models, and previously, released open-source models.[8][9] Its release of ChatGPT has been credited with starting the artificial intelligence spring.[10] The organization consists of the non-profit OpenAI, Inc.[11] registered in Delaware and its for-profit subsidiary OpenAI Global, LLC.[12] It was founded by Ilya Sutskever, Greg Brockman, Trevor Blackwell, Vicki Cheung, Andrej Karpathy, Durk Kingma, Jessica Livingston, John Schulman, Pamela Vagata, and Wojciech Zaremba, with Sam Altman and Elon Musk serving as the initial board members.[13][14][15] Microsoft provided OpenAI Global LLC with a $1 billion investment in 2019 and a $10 billion investment in 2023,[16][17] with a significant portion of the investment in the form of computational resources on Microsofts Azure cloud service.[18] On November 17, 2023, the board removed Altman as CEO, while Brockman was removed as chairman and then resigned as president. Four days later, both returned after negotiations with the board, and most of the board members resigned. The new initial board included former Salesforce co-CEO Bret Taylor as chairman.[19] It was also announced that Microsoft will have a non-voting board seat.[20]';\r",
+							"\r",
+							"userMessage=userMessage.replace(/\"/g,'\\\\\"');\r",
+							"userMessage=userMessage.replace(/\\n/g,'\\\\n');\r",
+							"userMessage=userMessage.replace(/\\t/g,'\\\\t');\r",
+							"\r",
+							"pm.variables.set('userMessage',userMessage);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\":\"You are a helpful assistant that provides a summary of every text eneterd by the user.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"{{userMessage}}\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "creating the multine input message for getting the summary"
+			},
+			"response": []
+		},
+		{
+			"name": "Summary - Max_tokens",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let userMessage='OpenAI is a U.S. based artificial intelligence (AI) research organization founded in December 2015, researching artificial intelligence with the goal of developing \"safe and beneficial\" artificial general intelligence, which it defines as \"highly autonomous systems that outperform humans at most economically valuable work\".[4] As one of the leading organizations of the AI Spring,[5][6][7] it has developed several large language models, advanced image generation models, and previously, released open-source models.[8][9] Its release of ChatGPT has been credited with starting the artificial intelligence spring.[10] The organization consists of the non-profit OpenAI, Inc.[11] registered in Delaware and its for-profit subsidiary OpenAI Global, LLC.[12] It was founded by Ilya Sutskever, Greg Brockman, Trevor Blackwell, Vicki Cheung, Andrej Karpathy, Durk Kingma, Jessica Livingston, John Schulman, Pamela Vagata, and Wojciech Zaremba, with Sam Altman and Elon Musk serving as the initial board members.[13][14][15] Microsoft provided OpenAI Global LLC with a $1 billion investment in 2019 and a $10 billion investment in 2023,[16][17] with a significant portion of the investment in the form of computational resources on Microsofts Azure cloud service.[18] On November 17, 2023, the board removed Altman as CEO, while Brockman was removed as chairman and then resigned as president. Four days later, both returned after negotiations with the board, and most of the board members resigned. The new initial board included former Salesforce co-CEO Bret Taylor as chairman.[19] It was also announced that Microsoft will have a non-voting board seat.[20]';\r",
+							"\r",
+							"userMessage=userMessage.replace(/\"/g,'\\\\\"');\r",
+							"userMessage=userMessage.replace(/\\n/g,'\\\\n');\r",
+							"userMessage=userMessage.replace(/\\t/g,'\\\\t');\r",
+							"\r",
+							"pm.variables.set('userMessage',userMessage);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"max_tokens\": 100,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\":\"You are a helpful assistant that provides a summary of every text eneterd by the user.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"{{userMessage}}\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "creating the multine input message for getting the summary"
+			},
+			"response": []
+		},
+		{
+			"name": "Streaming output",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let userMessage='OpenAI is a U.S. based artificial intelligence (AI) research organization founded in December 2015, researching artificial intelligence with the goal of developing \"safe and beneficial\" artificial general intelligence, which it defines as \"highly autonomous systems that outperform humans at most economically valuable work\".[4] As one of the leading organizations of the AI Spring,[5][6][7] it has developed several large language models, advanced image generation models, and previously, released open-source models.[8][9] Its release of ChatGPT has been credited with starting the artificial intelligence spring.[10] The organization consists of the non-profit OpenAI, Inc.[11] registered in Delaware and its for-profit subsidiary OpenAI Global, LLC.[12] It was founded by Ilya Sutskever, Greg Brockman, Trevor Blackwell, Vicki Cheung, Andrej Karpathy, Durk Kingma, Jessica Livingston, John Schulman, Pamela Vagata, and Wojciech Zaremba, with Sam Altman and Elon Musk serving as the initial board members.[13][14][15] Microsoft provided OpenAI Global LLC with a $1 billion investment in 2019 and a $10 billion investment in 2023,[16][17] with a significant portion of the investment in the form of computational resources on Microsofts Azure cloud service.[18] On November 17, 2023, the board removed Altman as CEO, while Brockman was removed as chairman and then resigned as president. Four days later, both returned after negotiations with the board, and most of the board members resigned. The new initial board included former Salesforce co-CEO Bret Taylor as chairman.[19] It was also announced that Microsoft will have a non-voting board seat.[20]';\r",
+							"\r",
+							"userMessage=userMessage.replace(/\"/g,'\\\\\"');\r",
+							"userMessage=userMessage.replace(/\\n/g,'\\\\n');\r",
+							"userMessage=userMessage.replace(/\\t/g,'\\\\t');\r",
+							"\r",
+							"pm.variables.set('userMessage',userMessage);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"stream\": true,\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\":\"You are a helpful assistant that provides a summary of every text eneterd by the user.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"{{userMessage}}\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				},
+				"description": "it is used to get the output in streams"
+			},
+			"response": []
+		},
+		{
+			"name": "Text Completion - text-davinci-003",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"davinci-002\",\r\n    \"prompt\": \"Write a resume for a senior software engineer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"completions"
+					]
+				},
+				"description": "Getting some data for the text"
+			},
+			"response": []
+		},
+		{
+			"name": "images - DALL-E",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Hard working software Engineer\",\r\n    \"n\":4,\r\n    \"size\":\"256x256\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/images/generations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"images",
+						"generations"
+					]
+				},
+				"description": "generating images"
+			},
+			"response": []
+		},
+		{
+			"name": "Audio transcription - Whisper API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "model",
+							"value": "whisper-1",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/abhis/Downloads/vdespa-whisper-api-example.mp3"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/audio/transcriptions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"audio",
+						"transcriptions"
+					]
+				},
+				"description": "transcripting the audio files"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiKey",
+			"value": "FIX ME",
+			"type": "string"
+		}
+	]
+}
